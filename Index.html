@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Holi Wishes</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#ff0080,#ff8c00,#40e0d0);
+    text-align:center;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Flying Colors */
+.color{
+    position:fixed;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    animation:fall linear infinite;
+    opacity:0.8;
+}
+
+@keyframes fall{
+    from{ transform:translateY(-10vh); }
+    to{ transform:translateY(110vh); }
+}
+
+.container{
+    padding:20px;
+}
+
+.card{
+    background:#7b0000;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,0.4);
+}
+
+img{
+    width:100%;
+    max-width:400px;
+    border-radius:15px;
+    box-shadow:0 0 20px yellow;
+}
+
+#senderName{
+    font-size:22px;
+    margin:10px 0;
+    color:#00ffcc;
+    font-weight:bold;
+}
+
+input{
+    padding:12px;
+    width:80%;
+    border-radius:10px;
+    border:none;
+    font-size:16px;
+    margin-top:15px;
+}
+
+button{
+    padding:12px 20px;
+    margin-top:15px;
+    border:none;
+    border-radius:30px;
+    background:#25D366;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* Ad Section */
+.ad-container{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<div class="card">
+
+<img src="holi.jpg" alt="Happy Holi">
+
+<h1>🌸 शुभ होली 🌸</h1>
+
+<div id="senderName"></div>
+
+<input type="text" id="nameInput" placeholder="अपना नाम लिखें">
+<br>
+<button onclick="shareOnWhatsApp()">WhatsApp पर शेयर करें</button>
+
+</div>
+</div>
+
+<!-- 🔥 Ad Section Bottom -->
+<div class="ad-container">
+<script>
+  atOptions = {
+    'key' : '582d31e14f04377bf0e09e18de1c122a',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/582d31e14f04377bf0e09e18de1c122a/invoke.js"></script>
+</div>
+
+<script>
+
+/* Flying Colors */
+function createColors(){
+    const colors = ["red","yellow","blue","green","pink","orange"];
+    for(let i=0;i<40;i++){
+        let div = document.createElement("div");
+        div.classList.add("color");
+        div.style.left = Math.random()*100 + "vw";
+        div.style.background = colors[Math.floor(Math.random()*colors.length)];
+        div.style.animationDuration = (Math.random()*3+2) + "s";
+        div.style.width = div.style.height = (Math.random()*10+10) + "px";
+        document.body.appendChild(div);
+    }
+}
+createColors();
+
+/* URL Name */
+function getNameFromURL(){
+    const params = new URLSearchParams(window.location.search);
+    return params.get("name");
+}
+
+const nameFromURL = getNameFromURL();
+if(nameFromURL){
+    document.getElementById("senderName").innerHTML =
+    "🎉 " + nameFromURL + " की तरफ से आपको होली की शुभकामनाएं!";
+}
+
+/* WhatsApp Share */
+function shareOnWhatsApp(){
+    const name = document.getElementById("nameInput").value;
+
+    if(name==""){
+        alert("पहले अपना नाम लिखें");
+        return;
+    }
+
+    const pageURL = window.location.origin + window.location.pathname + "?name=" + encodeURIComponent(name);
+
+    const message = "🌸 " + name + " की तरफ से आपको होली की शुभकामनाएं! 🌸\n\n" + pageURL;
+
+    const whatsappURL = "https://wa.me/?text=" + encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+}
+
+</script>
+
+</body>
+</html>
+<script>
+  atOptions = {
+    'key' : '582d31e14f04377bf0e09e18de1c122a',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/582d31e14f04377bf0e09e18de1c122a/invoke.js"></script>
